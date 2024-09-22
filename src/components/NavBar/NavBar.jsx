@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../images/logo.png";
+import logo from "../../assets/logo.png";
 import css from "./NavBar.module.css";
 import clsx from "clsx";
 import { Authorization } from "../Authorization/Authorization";

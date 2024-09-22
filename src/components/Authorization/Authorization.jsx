@@ -1,15 +1,17 @@
+import css from "./Authorization.module.css";
+
 export const Authorization = () => {
   return (
     <div>
-      <button>
+      <button className={css.btnlogin}>
         <img
           src="/src/assets/login.png"
           alt="Login Icon"
-          style={{ width: "20px", height: "20px" }}
+          className={css.iconlogin}
         />
-        LogIn
+        Log in
       </button>
-      <button>Register</button>
+      <button className={css.btnregister}>Register</button>
     </div>
   );
 };

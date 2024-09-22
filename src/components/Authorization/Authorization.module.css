@@ -1,0 +1,28 @@
+.btnlogin {
+  color: #121417;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btnregister {
+  color: #ffffff;
+  background-color: #121417;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.iconlogin {
+  margin-right: 4px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
