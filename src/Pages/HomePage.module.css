@@ -1,0 +1,34 @@
+.main {
+  padding-top: 120px;
+}
+.hero {
+  padding: 72px 0 72px 0;
+  background-color: #2e2f42;
+  color: #fff;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 47, 66, 0.4),
+      rgba(46, 47, 66, 0.4)
+    ),
+    url("../images/main.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+}
+
+.title {
+  padding: 12px;
+}
+
+.mostra {
+  background-color: #8adbea;
+  font-weight: 500;
+  padding: 8px;
+}
+
+.textmostra {
+  font-style: italic;
+}
