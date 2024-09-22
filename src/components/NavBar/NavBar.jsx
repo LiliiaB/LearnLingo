@@ -17,7 +17,7 @@ export const NavBar = () => {
           alt="Logo"
           style={{ width: "20px", height: "20px", marginRight: "10px" }}
         />
-        Learn Lingo
+        LearnLingo
       </Link>
       <div className={css.navlinks}>
         <NavLink to="/" className={buildLinkClass}>

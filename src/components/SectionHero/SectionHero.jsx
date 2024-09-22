@@ -24,19 +24,31 @@ export const SectionHero = () => {
       <div className={css.underherosection}>
         <div className={css.stat}>
           <h2>32,000 +</h2>
-          <p>Experienced Tutors</p>
+          <p>
+            Experienced <br />
+            Tutors
+          </p>
         </div>
         <div className={css.stat}>
           <h2>300,000 +</h2>
-          <p>5-Star Tutor Reviews</p>
+          <p>
+            5-Star tutor <br />
+            Reviews
+          </p>
         </div>
         <div className={css.stat}>
           <h2>120 +</h2>
-          <p>Subjects Taught</p>
+          <p>
+            Subjects <br />
+            taught
+          </p>
         </div>
         <div className={css.stat}>
           <h2>200 +</h2>
-          <p>Tutor Nationalities</p>
+          <p>
+            Tutor <br />
+            nationalities
+          </p>
         </div>
       </div>
     </div>

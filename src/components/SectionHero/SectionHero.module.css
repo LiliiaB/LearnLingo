@@ -1,5 +1,5 @@
 .hero {
-  padding-top: 120px;
+  padding-top: 64px;
 }
 .herotitle {
   font-family: "Roboto", sans-serif;
@@ -42,31 +42,36 @@
 .underherosection {
   margin-top: 24px;
   border: 1.5px dashed #9fb7ce;
-  border-radius: 50px;
+  border-radius: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 40px 20px;
-  border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .stat {
   text-align: center;
+  display: flex;
 }
 .stat h2 {
-  font-size: 2.5rem;
+  font-size: 28px;
   margin: 0;
+  padding-right: 2px;
 }
 .stat p {
-  font-size: 1.2rem;
+  font-size: 14px;
   color: #555;
+  margin: 0;
 }
 
 .heromain {
   display: flex;
+  gap: 24px;
 }
 
 .section1 {
   padding: 40px;
+  background: #f8f8f8;
+  border-radius: 30px;
 }
