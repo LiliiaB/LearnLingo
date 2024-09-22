@@ -13,6 +13,7 @@ export const NavBar = () => {
     <nav className={css.nav}>
       <Link to="/">
         <img src={logo} alt="Logo" style={{ width: "60px", height: "60px" }} />
+        Learn Lingo
       </Link>
 
       <NavLink to="/" className={buildLinkClass}>
