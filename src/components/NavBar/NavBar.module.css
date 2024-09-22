@@ -18,7 +18,12 @@
   align-items: center;
 }
 
-/*194a28 */
+.navlinks {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 12px;
+}
 
 .artista {
   margin-left: auto;

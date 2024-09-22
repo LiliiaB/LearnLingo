@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
 import css from "./NavBar.module.css";
 import clsx from "clsx";
-import Artista from "../Artista/Artista";
+import { Authorization } from "../Authorization/Authorization";
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -12,25 +12,26 @@ export const NavBar = () => {
   return (
     <nav className={css.nav}>
       <Link to="/">
-        <img src={logo} alt="Logo" style={{ width: "60px", height: "60px" }} />
+        <img
+          src={logo}
+          alt="Logo"
+          style={{ width: "20px", height: "20px", marginRight: "10px" }}
+        />
         Learn Lingo
       </Link>
-
-      <NavLink to="/" className={buildLinkClass}>
-        Home
-      </NavLink>
-      <NavLink to="/gallery" className={buildLinkClass}>
-        Galleria
-      </NavLink>
-      <NavLink to="/terms" className={buildLinkClass}>
-        Termini e condizioni
-      </NavLink>
-      <NavLink to="/contacts" className={buildLinkClass}>
-        Contatti
-      </NavLink>
-
+      <div className={css.navlinks}>
+        <NavLink to="/" className={buildLinkClass}>
+          Home
+        </NavLink>
+        <NavLink to="/teachers" className={buildLinkClass}>
+          Teachers
+        </NavLink>
+        <NavLink to="/favourite" className={buildLinkClass}>
+          Favourite
+        </NavLink>
+      </div>
       <div className={css.artista}>
-        <Artista />
+        <Authorization />
       </div>
     </nav>
   );

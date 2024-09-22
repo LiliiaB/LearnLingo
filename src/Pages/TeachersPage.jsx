@@ -1,7 +1,7 @@
 import Card from "../components/Card/Card";
-import css from "./GalleryPage.module.css";
+import css from "./TeachersPage.module.css";
 
-export default function GalleryPage() {
+export default function TeachersPage() {
   return (
     <div className={css.gallery}>
       <h2>VINCITORI 2024</h2>
