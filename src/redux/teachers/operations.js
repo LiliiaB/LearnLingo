@@ -11,7 +11,16 @@ export const fetchTeachers = createAsyncThunk(
     try {
       const response = await axios.get("/teachers.json");
 
-      console.log(response);
+      if (response.data) {
+        const teachers = Object.keys(response.data).map((key) => ({
+          id: key,
+          ...response.data[key],
+        }));
+        return teachers;
+      } else {
+        toast.error("No teachers found.");
+        return [];
+      }
     } catch (error) {
       toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
