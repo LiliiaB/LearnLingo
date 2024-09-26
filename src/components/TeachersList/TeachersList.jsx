@@ -22,14 +22,17 @@ export const TeachersList = () => {
 
   return (
     <div>
-      <h1>Teachers List</h1>
-      <ul>
-        {teachers.map((teacher) => (
-          <li key={teacher.id}>
-            {teacher.name} {teacher.surname}
-          </li>
-        ))}
-      </ul>
+      {teachers && teachers.length > 0 ? (
+        <ul>
+          {teachers.map((teacher) => (
+            <li key={teacher.id}>
+              {teacher.name} {teacher.surname}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No teachers available.</p>
+      )}
     </div>
   );
 };
