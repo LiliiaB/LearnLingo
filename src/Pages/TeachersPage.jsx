@@ -21,7 +21,7 @@ export default function TeachersPage() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={css.gallery}>
       {loader && <Loader />}
       {error && <p>Some error happened</p>}
       <TeachersList teachers={teachers} />

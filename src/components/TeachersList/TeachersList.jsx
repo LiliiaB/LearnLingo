@@ -1,22 +1,23 @@
-import css from "./TeachersList.module.css";
+//import css from "./TeachersList.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../../redux/teachers/operations";
 
 export const TeachersList = () => {
   const dispatch = useDispatch();
-  const teachers = useSelector((state) => state.teachers.data);
-  const status = useSelector((state) => state.teachers.status);
+  const teachers = useSelector((state) => state.teachers.items);
+  const isLoading = useSelector((state) => state.teachers.isLoading);
+  const error = useSelector((state) => state.teachers.error);
 
   useEffect(() => {
     dispatch(fetchTeachers());
   }, [dispatch]);
 
-  if (status === "loading") {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
 
-  if (status === "failed") {
+  if (error) {
     return <p>Error loading teachers</p>;
   }
 

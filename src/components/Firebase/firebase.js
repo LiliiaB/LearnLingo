@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+/* // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
@@ -12,8 +12,7 @@ import axios from "axios";
 export const firebaseConfig = {
   apiKey: "AIzaSyBqfQyJJ4_YUeUmhSjMIna86gtcsAY42ZQ",
   authDomain: "learnlingo-852a3.firebaseapp.com",
-  databaseURL:
-    "https://learnlingo-852a3-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL: "https://learnlingo-852a3.appspot.com/teachers.json",
   projectId: "learnlingo-852a3",
   storageBucket: "learnlingo-852a3.appspot.com",
   messagingSenderId: "659350478702",
@@ -28,9 +27,7 @@ export const database = getDatabase(app);
 
 export const fetchTeachers = async () => {
   try {
-    const response = await axios.get(
-      `https://${firebaseConfig.databaseURL}/teachers.json`
-    );
+    const response = await axios.get(`https://${firebaseConfig.databaseURL}/`);
     return response.data;
   } catch (error) {
     console.error("Error fetching teachers:", error);
@@ -49,5 +46,6 @@ fetchTeachers()
 export const teachersRef = ref(database, "teachers");
 onValue(teachersRef, (snapshot) => {
   const teachers = snapshot.val();
-  // Process the teachers data
+  console.log(teachers);
 });
+ */

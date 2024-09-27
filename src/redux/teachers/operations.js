@@ -1,24 +1,15 @@
-/* import axios from "axios";
-import firebase from "firebase/app";
-import "firebase/database";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const fetchTeachers = async () => {
-  try {
-    const response = await axios.get(
-      `https://${firebaseConfig.databaseURL}/teachers.json`
+export const fetchTeachers = createAsyncThunk(
+  "teachers/fetchTeachers",
+  async () => {
+    const response = await fetch(
+      "https://66f71b9bb5d85f31a342083e.mockapi.io/teachers"
     );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching teachers:", error);
-    throw error;
+    if (!response.ok) {
+      throw new Error("Failed to fetch teachers");
+    }
+    const data = await response.json();
+    return data;
   }
-};
-
-fetchTeachers()
-  .then((teachers) => {
-    console.log("Teachers:", teachers);
-  })
-  .catch((error) => {
-    console.error("Error fetching teachers:", error);
-  });
- */
+);

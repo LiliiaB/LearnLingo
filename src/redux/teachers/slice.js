@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTeachers } from "../../components/Firebase/firebase";
+import { fetchTeachers } from "./operations";
 
 const teachersSlice = createSlice({
   name: "teachers",
@@ -23,7 +23,7 @@ const teachersSlice = createSlice({
       })
       .addCase(fetchTeachers.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = action.error.message;
       });
   },
 });
