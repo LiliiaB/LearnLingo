@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTeachers } from "./operations";
+import { fetchTeachers } from "../../components/Firebase/firebase";
 
 const teachersSlice = createSlice({
   name: "teachers",

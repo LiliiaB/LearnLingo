@@ -2,12 +2,14 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
+import { ref, onValue } from "firebase/database";
+import axios from "axios";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBqfQyJJ4_YUeUmhSjMIna86gtcsAY42ZQ",
   authDomain: "learnlingo-852a3.firebaseapp.com",
   databaseURL:
@@ -20,8 +22,32 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const database = getDatabase(app);
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const database = getDatabase(app);
 
-export { database };
+export const fetchTeachers = async () => {
+  try {
+    const response = await axios.get(
+      `https://${firebaseConfig.databaseURL}/teachers.json`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching teachers:", error);
+    throw error;
+  }
+};
+
+fetchTeachers()
+  .then((teachers) => {
+    console.log("Teachers:", teachers);
+  })
+  .catch((error) => {
+    console.error("Error fetching teachers:", error);
+  });
+
+export const teachersRef = ref(database, "teachers");
+onValue(teachersRef, (snapshot) => {
+  const teachers = snapshot.val();
+  // Process the teachers data
+});

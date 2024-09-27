@@ -1,29 +1,24 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+/* import axios from "axios";
+import firebase from "firebase/app";
+import "firebase/database";
 
-axios.defaults.baseURL =
-  "https://learnlingo-852a3-default-rtdb.europe-west1.firebasedatabase.app";
-
-export const fetchTeachers = createAsyncThunk(
-  "teachers/fetchAll",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/teachers.json");
-
-      if (response.data) {
-        const teachers = Object.keys(response.data).map((key) => ({
-          id: key,
-          ...response.data[key],
-        }));
-        return teachers;
-      } else {
-        toast.error("No teachers found.");
-        return [];
-      }
-    } catch (error) {
-      toast.error(error.message);
-      return thunkAPI.rejectWithValue(error.message);
-    }
+const fetchTeachers = async () => {
+  try {
+    const response = await axios.get(
+      `https://${firebaseConfig.databaseURL}/teachers.json`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching teachers:", error);
+    throw error;
   }
-);
+};
+
+fetchTeachers()
+  .then((teachers) => {
+    console.log("Teachers:", teachers);
+  })
+  .catch((error) => {
+    console.error("Error fetching teachers:", error);
+  });
+ */
