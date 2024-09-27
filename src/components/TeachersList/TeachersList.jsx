@@ -1,7 +1,8 @@
-//import css from "./TeachersList.module.css";
+import css from "./TeachersList.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../../redux/teachers/operations";
+import Loader from "../Loader/Loader";
 
 export const TeachersList = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export const TeachersList = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (error) {
@@ -24,10 +25,21 @@ export const TeachersList = () => {
   return (
     <div>
       {teachers && teachers.length > 0 ? (
-        <ul>
+        <ul className={css.main}>
           {teachers.map((teacher) => (
-            <li key={teacher.id}>
-              {teacher.name} {teacher.surname}
+            <li key={teacher.id} className={css.card}>
+              <div>
+                <img src={teacher.avatar_url} alt="foto" className={css.img} />
+              </div>
+              <div className={css.cardtext}>
+                <p>
+                  {teacher.name} {teacher.surname}
+                </p>
+                <p>Speaks: {teacher.languages}</p>
+                <p>Lesson info: {teacher.lesson_info}</p>
+                <p>Conditions: {teacher.conditions}</p>
+                <button>Read more</button>
+              </div>
             </li>
           ))}
         </ul>

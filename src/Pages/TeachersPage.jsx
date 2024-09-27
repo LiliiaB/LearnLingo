@@ -13,7 +13,6 @@ import {
 export default function TeachersPage() {
   const dispatch = useDispatch();
   const teachers = useSelector(selectTeachers);
-  const loader = useSelector(selectLoader);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ export default function TeachersPage() {
 
   return (
     <div className={css.gallery}>
-      {loader && <Loader />}
       {error && <p>Some error happened</p>}
       <TeachersList teachers={teachers} />
     </div>
