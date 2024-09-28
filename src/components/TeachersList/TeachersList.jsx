@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../../redux/teachers/operations";
 import Loader from "../Loader/Loader";
+import SearchBar from "../SearchBar/SearchBar";
 
 export const TeachersList = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export const TeachersList = () => {
 
   return (
     <div>
+      <SearchBar />
       {teachers && teachers.length > 0 ? (
         <ul className={css.main}>
           {teachers.map((teacher) => (
