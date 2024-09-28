@@ -19,9 +19,33 @@
   padding: 24px;
   background-color: #ffff;
   margin-bottom: 32px;
-  gap: 12px;
+  gap: 48px;
 }
 
 .cardtext {
   text-align: left;
+}
+.span {
+  color: rgba(18, 20, 23, 0.2);
+}
+.p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+}
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #121417;
+  background-color: #fff;
+  padding: 0;
 }

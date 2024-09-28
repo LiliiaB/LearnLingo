@@ -32,7 +32,12 @@
   padding: 16px 88px;
   width: 267px;
   height: 60px;
-  background: #9fb7ce;
+  background-color: #9fb7ce;
+  color: #121417;
+}
+
+.herobtn:hover {
+  background-color: #bfd6ea;
   color: #121417;
 }
 

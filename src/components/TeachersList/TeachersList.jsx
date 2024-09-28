@@ -32,13 +32,21 @@ export const TeachersList = () => {
                 <img src={teacher.avatar_url} alt="foto" className={css.img} />
               </div>
               <div className={css.cardtext}>
-                <p>
+                <p className={css.name}>
                   {teacher.name} {teacher.surname}
                 </p>
-                <p>Speaks: {teacher.languages}</p>
-                <p>Lesson info: {teacher.lesson_info}</p>
-                <p>Conditions: {teacher.conditions}</p>
-                <button>Read more</button>
+                <p className={css.p}>
+                  <span className={css.span}>Speaks:</span> {teacher.languages}
+                </p>
+                <p className={css.p}>
+                  <span className={css.span}>Lesson info:</span>{" "}
+                  {teacher.lesson_info}
+                </p>
+                <p className={css.p}>
+                  <span className={css.span}>Conditions:</span>{" "}
+                  {teacher.conditions}
+                </p>
+                <button className={css.btn}>Read more</button>
               </div>
             </li>
           ))}
