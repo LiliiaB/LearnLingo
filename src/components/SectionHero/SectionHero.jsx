@@ -1,5 +1,6 @@
 import css from "./SectionHero.module.css";
 import hero from "../../assets/hero.png";
+import { Link } from "react-router-dom";
 
 export const SectionHero = () => {
   return (
@@ -15,7 +16,9 @@ export const SectionHero = () => {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </p>
-          <button className={css.herobtn}>Get started</button>
+          <Link to="/teachers" className={css.herobtn}>
+            Get started
+          </Link>
         </div>
         <div className={css.heroimage}>
           <img src={hero} alt="woman with macbook" />
