@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../../redux/teachers/operations";
 import Loader from "../Loader/Loader";
 import SearchBar from "../SearchBar/SearchBar";
+import bookopen from "../../assets/bookopen.png";
+import vector from "../../assets/vector.png";
+import star from "../../assets/star.png";
+import heart from "../../assets/heart.png";
 
 export const TeachersList = () => {
   const dispatch = useDispatch();
@@ -34,6 +38,37 @@ export const TeachersList = () => {
                 <img src={teacher.avatar_url} alt="foto" className={css.img} />
               </div>
               <div className={css.cardtext}>
+                <div className={css.teacherrating}>
+                  <p>
+                    <img className={css.icon} src={bookopen} alt="bookicon" />{" "}
+                    {""}
+                    <span className={css.spantext}>Lessions online {""}</span>
+                    <img className={css.vector} src={vector} />
+                  </p>
+                  <p>
+                    <span className={css.spantext}>
+                      Lessions done: {teacher.lessons_done}
+                    </span>{" "}
+                    {""}
+                    <img className={css.vector} src={vector} />
+                  </p>
+                  <p className={css.spantext}>
+                    <img className={css.icon} src={star} alt="staricon" /> {""}
+                    <span>Rating: {teacher.rating}</span> {""}
+                    <img className={css.vector} src={vector} />
+                  </p>
+                  <p>
+                    <span>
+                      Price / 1 hour:{" "}
+                      <span className={css.green}>
+                        {teacher.price_per_hour}$
+                      </span>
+                    </span>{" "}
+                    {""}
+                  </p>
+                  <img src={heart} alt="heart" className={css.heart} />
+                </div>
+
                 <p className={css.name}>
                   {teacher.name} {teacher.surname}
                 </p>

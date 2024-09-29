@@ -1,7 +1,7 @@
 .main {
   list-style-type: none;
   padding-left: 0;
-  padding-top: 32px;
+  padding-top: 12px;
 }
 
 .img {
@@ -20,6 +20,7 @@
   background-color: #ffff;
   margin-bottom: 32px;
   gap: 48px;
+  position: relative;
 }
 
 .cardtext {
@@ -48,4 +49,41 @@
   color: #121417;
   background-color: #fff;
   padding: 0;
+}
+
+.teacherrating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.heart {
+  margin-left: 28px;
+  width: 26px;
+  height: 26px;
+  margin-right: 16px;
+}
+.green {
+  color: #38cd3e;
+}
+
+.spantext {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.vector {
+  vertical-align: middle;
 }
