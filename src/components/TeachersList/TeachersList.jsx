@@ -1,11 +1,17 @@
 import css from "./TeachersList.module.css";
-
+import { useState } from "react";
 import bookopen from "../../assets/bookopen.png";
 import vector from "../../assets/vector.png";
 import star from "../../assets/star.png";
 import heart from "../../assets/heart.png";
 
 export const TeachersList = ({ teachers }) => {
+  const [expandedTeacherId, setExpandedTeacherId] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpandedTeacherId(expandedTeacherId === id ? null : id);
+  };
+
   return (
     <div>
       <ul className={css.main}>
@@ -59,7 +65,30 @@ export const TeachersList = ({ teachers }) => {
                 <span className={css.span}>Conditions:</span>{" "}
                 {teacher.conditions}
               </p>
-              <button className={css.btn}>Read more</button>
+              <button
+                className={css.btn}
+                onClick={() => toggleExpand(teacher.id)}
+              >
+                {expandedTeacherId === teacher.id ? "Read less" : "Read more"}
+              </button>
+              {expandedTeacherId === teacher.id && (
+                <div className={css.expandedContent}>
+                  <p>{teacher.experience}</p>
+                  <ul className={css.reviewList}>
+                    {teacher.reviews.map((review, index) => (
+                      <li key={index} className={css.reviewItem}>
+                        <p>{review.reviewer_name}</p>
+                        <p>
+                          <img className={css.icon} src={star} alt="staricon" />{" "}
+                          {review.reviewer_rating}
+                        </p>
+                        <p>{review.comment}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className={css.trialbtn}>Book trial lesson</button>
+                </div>
+              )}
             </div>
           </li>
         ))}

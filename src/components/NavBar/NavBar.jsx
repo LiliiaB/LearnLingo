@@ -26,9 +26,9 @@ export const NavBar = () => {
         <NavLink to="/teachers" className={buildLinkClass}>
           Teachers
         </NavLink>
-        <NavLink to="/favourite" className={buildLinkClass}>
+        {/*         <NavLink to="/favourite" className={buildLinkClass}>
           Favourite
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className={css.artista}>
         <Authorization />

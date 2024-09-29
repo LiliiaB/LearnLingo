@@ -1,5 +1,5 @@
 import css from "./SearchBar.module.css";
-import { useEffect } from "react";
+
 import { Formik, Form, Field } from "formik";
 
 const SearchBar = ({ onFilterChange }) => {
@@ -37,8 +37,7 @@ const SearchBar = ({ onFilterChange }) => {
               <option value="French">French</option>
               <option value="English">English</option>
               <option value="German">German</option>
-              <option value="Ukrainian">Ukrainian</option>
-              <option value="Polish">Polish</option>
+              <option value="Italian">Italian</option>
             </Field>
           </div>
           <div className={css.filter}>
