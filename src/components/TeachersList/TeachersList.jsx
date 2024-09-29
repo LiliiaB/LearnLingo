@@ -4,9 +4,20 @@ import bookopen from "../../assets/bookopen.png";
 import vector from "../../assets/vector.png";
 import star from "../../assets/star.png";
 import heart from "../../assets/heart.png";
+import ModalButton from "../ModalButton/ModalButton";
+import Modalbooktrial from "../Modal/Modalbooktrial";
 
 export const TeachersList = ({ teachers }) => {
   const [expandedTeacherId, setExpandedTeacherId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const toggleExpand = (id) => {
     setExpandedTeacherId(expandedTeacherId === id ? null : id);
@@ -86,7 +97,11 @@ export const TeachersList = ({ teachers }) => {
                       </li>
                     ))}
                   </ul>
-                  <button className={css.trialbtn}>Book trial lesson</button>
+                  <ModalButton openModal={openModal} />
+                  <Modalbooktrial
+                    isModalOpen={isModalOpen}
+                    closeModal={closeModal}
+                  />
                 </div>
               )}
             </div>
