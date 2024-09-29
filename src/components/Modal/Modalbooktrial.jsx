@@ -117,8 +117,12 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
             </div>
 
             <div>
-              <label htmlFor="name">Full Name</label>
-              <Field type="text" name="name" />
+              <Field
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                className={css.field}
+              />
               <ErrorMessage
                 name="name"
                 component="div"
@@ -127,8 +131,12 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
             </div>
 
             <div>
-              <label htmlFor="email">Email</label>
-              <Field type="text" name="email" />
+              <Field
+                type="text"
+                name="email"
+                placeholder="Email"
+                className={css.field}
+              />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -137,8 +145,12 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
             </div>
 
             <div>
-              <label htmlFor="phone">Phone number</label>
-              <Field type="text" name="phone" />
+              <Field
+                type="text"
+                name="phone"
+                placeholder="Phone number"
+                className={css.field}
+              />
               <ErrorMessage
                 name="phone"
                 component="div"
