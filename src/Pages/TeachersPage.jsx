@@ -1,5 +1,5 @@
 import TeachersList from "../components/TeachersList/TeachersList";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import css from "./TeachersPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../redux/teachers/operations";
@@ -12,40 +12,22 @@ export default function TeachersPage() {
   const error = useSelector(selectError);
 
   const [filteredTeachers, setFilteredTeachers] = useState([]);
-  const [filters, setFilters] = useState({
-    language: "",
-    level: "",
-    price: "",
-  });
 
   useEffect(() => {
     dispatch(fetchTeachers());
   }, [dispatch]);
 
-  useEffect(() => {
-    const filtered = teachers.filter((teacher) => {
-      const matchLanguage =
-        filters.language === "" || teacher.languages.includes(filters.language);
-      const matchLevel =
-        filters.level === "" || teacher.level === filters.level;
-      const matchPrice =
-        filters.price === "" ||
-        teacher.price_per_hour <= parseInt(filters.price, 10);
-
-      return matchLanguage && matchLevel && matchPrice;
-    });
-
-    setFilteredTeachers(filtered);
-  }, [filters, teachers]);
-
-  const handleFilterChange = (updatedFilters) => {
-    setFilters(updatedFilters);
+  const handleFilterChange = (filteredTeachers) => {
+    setFilteredTeachers(filteredTeachers);
   };
+
   return (
     <div className={css.gallery}>
       {error && <p>Some error happened</p>}
-      <SearchBar onFilterChange={handleFilterChange} />
-      <TeachersList teachers={filteredTeachers} />
+      <SearchBar teachersData={teachers} onFilterChange={handleFilterChange} />
+      <TeachersList
+        teachers={filteredTeachers.length ? filteredTeachers : teachers}
+      />
     </div>
   );
 }
