@@ -31,7 +31,7 @@ const validationSchema = Yup.object({
   reason: Yup.string().required("Please select a reason"),
 });
 
-function Modalbooktrial({ isModalOpen, closeModal }) {
+function Modalbooktrial({ isModalOpen, closeModal, teacher }) {
   const initialValues = {
     name: "",
     email: "",
@@ -64,6 +64,19 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
               discuss your learning goals, and tailor the lesson to your
               specific needs.
             </p>
+            <div>
+              <p>Your teacher</p>
+              <div className={css.fotobox}>
+                <img
+                  src={teacher.avatar_url}
+                  alt="teacher photo"
+                  className={css.foto}
+                />
+                <h4>
+                  {teacher.name} {teacher.surname}
+                </h4>
+              </div>
+            </div>
             <h3>What is your main reason for learning?</h3>
             <div>
               <fieldset className={css.fieldset}>
@@ -74,7 +87,7 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
                     name="reason"
                     value="career"
                   />
-                  <label> Career and Business</label>
+                  <label htmlFor="career"> Career and Business</label>
                 </div>
                 <div>
                   <input
@@ -83,7 +96,7 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
                     name="reason"
                     value="kids"
                   />
-                  <label> Lesson for kids</label>
+                  <label htmlFor="kids"> Lesson for kids</label>
                 </div>
                 <div>
                   <input
@@ -92,7 +105,7 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
                     name="reason"
                     value="abroad"
                   />
-                  <label> Living abroad</label>
+                  <label htmlFor="abroad"> Living abroad</label>
                 </div>
                 <div>
                   <input
@@ -101,7 +114,7 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
                     name="reason"
                     value="exams"
                   />
-                  <label> Exams and courses</label>
+                  <label htmlFor="exams"> Exams and courses</label>
                 </div>
                 <div>
                   <input
@@ -111,7 +124,7 @@ function Modalbooktrial({ isModalOpen, closeModal }) {
                     value="travel"
                   />
 
-                  <label> Culture, travel or hobby</label>
+                  <label htmlFor="travel"> Culture, travel or hobby</label>
                 </div>
               </fieldset>
             </div>

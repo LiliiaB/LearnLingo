@@ -30,3 +30,15 @@
   padding: 16px 382px 16px 18px;
   margin-bottom: 12px;
 }
+
+.foto {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.fotobox {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}

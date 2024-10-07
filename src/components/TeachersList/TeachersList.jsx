@@ -10,13 +10,16 @@ import Modalbooktrial from "../Modal/Modalbooktrial";
 export const TeachersList = ({ teachers }) => {
   const [expandedTeacherId, setExpandedTeacherId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
 
-  const openModal = () => {
+  const openModal = (teacher) => {
+    setSelectedTeacher(teacher);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedTeacher(null);
   };
 
   const toggleExpand = (id) => {
@@ -35,7 +38,6 @@ export const TeachersList = ({ teachers }) => {
               <div className={css.teacherrating}>
                 <p>
                   <img className={css.icon} src={bookopen} alt="bookicon" />{" "}
-                  {""}
                   <span className={css.spantext}>Lessions online {""}</span>
                   <img className={css.vector} src={vector} />
                 </p>
@@ -43,7 +45,6 @@ export const TeachersList = ({ teachers }) => {
                   <span className={css.spantext}>
                     Lessions done: {teacher.lessons_done}
                   </span>{" "}
-                  {""}
                   <img className={css.vector} src={vector} />
                 </p>
                 <p className={css.spantext}>
@@ -97,10 +98,11 @@ export const TeachersList = ({ teachers }) => {
                       </li>
                     ))}
                   </ul>
-                  <ModalButton openModal={openModal} />
+                  <ModalButton openModal={() => openModal(teacher)} />
                   <Modalbooktrial
                     isModalOpen={isModalOpen}
                     closeModal={closeModal}
+                    teacher={selectedTeacher}
                   />
                 </div>
               )}

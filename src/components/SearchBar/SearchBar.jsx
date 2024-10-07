@@ -13,7 +13,7 @@ const SearchBar = ({ teachersData, onFilterChange }) => {
         !languageFilter || teacher.languages.includes(languageFilter);
       const levelMatch = !levelFilter || teacher.levels.includes(levelFilter);
       const priceMatch =
-        !priceFilter || teacher.price_per_hour === Number(priceFilter);
+        !priceFilter || teacher.price_per_hour <= Number(priceFilter);
 
       return languageMatch && levelMatch && priceMatch;
     });
