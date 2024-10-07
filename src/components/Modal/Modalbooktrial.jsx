@@ -66,16 +66,20 @@ function Modalbooktrial({ isModalOpen, closeModal, teacher }) {
             </p>
             <div>
               <p>Your teacher</p>
-              <div className={css.fotobox}>
-                <img
-                  src={teacher.avatar_url}
-                  alt="teacher photo"
-                  className={css.foto}
-                />
-                <h4>
-                  {teacher.name} {teacher.surname}
-                </h4>
-              </div>
+              {teacher ? (
+                <div className={css.fotobox}>
+                  <img
+                    src={teacher.avatar_url}
+                    alt={`${teacher.name} ${teacher.surname}`}
+                    className={css.foto}
+                  />
+                  <h4>
+                    {teacher.name} {teacher.surname}
+                  </h4>
+                </div>
+              ) : (
+                <p>Loading teacher information...</p>
+              )}
             </div>
             <h3>What is your main reason for learning?</h3>
             <div>

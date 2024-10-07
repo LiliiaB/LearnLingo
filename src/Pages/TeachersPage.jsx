@@ -1,5 +1,5 @@
 import TeachersList from "../components/TeachersList/TeachersList";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import css from "./TeachersPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeachers } from "../redux/teachers/operations";
@@ -17,9 +17,9 @@ export default function TeachersPage() {
     dispatch(fetchTeachers());
   }, [dispatch]);
 
-  const handleFilterChange = (filteredTeachers) => {
-    setFilteredTeachers(filteredTeachers);
-  };
+  const handleFilterChange = useCallback((filtered) => {
+    setFilteredTeachers(filtered);
+  }, []);
 
   return (
     <div className={css.gallery}>
