@@ -1,15 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ref, get } from "firebase/database";
+import { database } from "../../components/Firebase/firebase";
 
 export const fetchTeachers = createAsyncThunk(
-  "teachers/fetchTeachers",
-  async () => {
-    const response = await fetch(
-      "https://66f71b9bb5d85f31a342083e.mockapi.io/teachers"
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch teachers");
+  "teachers/getTeachers",
+  async (_, thunkAPI) => {
+    try {
+      const teachersRef = ref(database, "teachers");
+      const snapshot = await get(teachersRef);
+      const teachersData = [];
+      snapshot.forEach((teacherSnapshot) => {
+        teachersData.push({
+          ...teacherSnapshot.val(),
+          id: teacherSnapshot.key,
+        });
+      });
+      return teachersData;
+    } catch (error) {
+      console.error("Error fetching teachers:", error);
+      return thunkAPI.rejectWithValue(error.message);
     }
-    const data = await response.json();
-    return data;
   }
 );

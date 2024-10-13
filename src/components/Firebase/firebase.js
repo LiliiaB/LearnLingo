@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 export const firebaseConfig = {
   apiKey: "AIzaSyBqfQyJJ4_YUeUmhSjMIna86gtcsAY42ZQ",
   authDomain: "learnlingo-852a3.firebaseapp.com",
-  databaseURL: "https://learnlingo-852a3.appspot.com/teachers.json",
+  databaseURL: "https://learnlingo-852a3-default-rtdb.firebaseio.com",
   projectId: "learnlingo-852a3",
   storageBucket: "learnlingo-852a3.appspot.com",
   messagingSenderId: "659350478702",
