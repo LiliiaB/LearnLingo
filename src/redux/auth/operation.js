@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { auth } from "../../firebase/config";
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
   signOut,
 } from "firebase/auth";
+import { auth } from "../../components/Firebase/firebase";
 
 export const logUpThunk = createAsyncThunk(
   "auth/logUpThunk",

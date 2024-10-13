@@ -10,14 +10,15 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import { authReducer } from "./auth/slice";
-import { teachersReducer } from "./teachers/slice";
 
-/* const authPersistConfig = {
+import { teachersReducer } from "./teachers/slice";
+import authReducer from "./auth/authReducer";
+
+const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
-}; */
+};
 
 const teachersPersistConfig = {
   key: "teachers",
@@ -27,7 +28,7 @@ const teachersPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    //auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     teachers: persistReducer(teachersPersistConfig, teachersReducer),
   },
   middleware: (getDefaultMiddleware) =>

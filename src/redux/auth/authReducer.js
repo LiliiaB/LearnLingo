@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logUpThunk, logInThunk, logOutThunk } from "./authOperations";
+
 import { toast } from "react-toastify";
+import { logInThunk, logOutThunk, logUpThunk } from "./operation";
 
 const initialState = {
   userId: null,
@@ -8,6 +9,7 @@ const initialState = {
   email: null,
   isAuth: false,
   isAuthLoading: false,
+  errorMessage: null,
 };
 
 const authSlice = createSlice({
@@ -25,8 +27,9 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(logUpThunk.pending, (state, { payload }) => {
+      .addCase(logUpThunk.pending, (state) => {
         state.isAuthLoading = true;
+        state.errorMessage = null;
       })
       .addCase(logUpThunk.fulfilled, (state, { payload }) => {
         if (!payload.error) {
@@ -34,20 +37,20 @@ const authSlice = createSlice({
           state.login = payload.displayName;
           state.email = payload.email;
           state.isAuth = true;
-          state.isAuthLoading = false;
         } else {
-          console.error(payload.error);
+          state.errorMessage = payload.error;
           toast.error(`${payload.error}`);
-          state.isAuthLoading = false;
         }
-      })
-      .addCase(logUpThunk.rejected, (state, { error }) => {
-        console.error(error);
-        toast.error(`${error}`);
         state.isAuthLoading = false;
       })
-      .addCase(logInThunk.pending, (state, { payload }) => {
+      .addCase(logUpThunk.rejected, (state, { error }) => {
+        state.isAuthLoading = false;
+        state.errorMessage = error.message;
+        toast.error(`${error.message}`);
+      })
+      .addCase(logInThunk.pending, (state) => {
         state.isAuthLoading = true;
+        state.errorMessage = null;
       })
       .addCase(logInThunk.fulfilled, (state, { payload }) => {
         if (!payload.error) {
@@ -55,22 +58,21 @@ const authSlice = createSlice({
           state.login = payload.displayName;
           state.email = payload.email;
           state.isAuth = true;
-          state.isAuthLoading = false;
         } else {
-          state.isAuthLoading = false;
-          console.error(payload.error);
+          state.errorMessage = payload.error;
           toast.error(`${payload.error}`);
         }
-      })
-      .addCase(logInThunk.rejected, (state, { error }) => {
-        console.error(error);
-        toast.error(`${error}`);
         state.isAuthLoading = false;
       })
-      .addCase(logOutThunk.pending, (state, { payload }) => {
+      .addCase(logInThunk.rejected, (state, { error }) => {
+        state.isAuthLoading = false;
+        state.errorMessage = error.message;
+        toast.error(`${error.message}`);
+      })
+      .addCase(logOutThunk.pending, (state) => {
         state.isAuthLoading = true;
       })
-      .addCase(logOutThunk.fulfilled, (state, { payload }) => {
+      .addCase(logOutThunk.fulfilled, (state) => {
         state.userId = null;
         state.login = null;
         state.email = null;
@@ -78,13 +80,13 @@ const authSlice = createSlice({
         state.isAuthLoading = false;
       })
       .addCase(logOutThunk.rejected, (state, { error }) => {
-        console.error(error);
-        toast.error(`${error}`);
         state.isAuthLoading = false;
+        state.errorMessage = error.message;
+        toast.error(`${error.message}`);
       });
   },
 });
 
 export const { getCurrentUser } = authSlice.actions;
-
-export default authSlice.reducer;
+const authReducer = authSlice.reducer;
+export default authReducer;
