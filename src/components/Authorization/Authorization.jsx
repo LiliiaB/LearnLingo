@@ -57,7 +57,11 @@ export const Authorization = () => {
         onClose={() => setShowLoginModal(false)}
       >
         <form className={css.authForm} onSubmit={handleLogin}>
-          <h2>Login</h2>
+          <h2 className={css.h1}>Log In</h2>
+          <p className={css.p}>
+            Welcome back! Please enter your credentials to access your account
+            and continue your search for an teacher.
+          </p>
           <div className={css.inputContainer}>
             <label htmlFor="email">Email:</label>
             <input

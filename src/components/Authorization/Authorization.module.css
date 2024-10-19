@@ -31,3 +31,27 @@
   display: flex;
   gap: 8px;
 }
+
+.h1 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+.inputContainer {
+  display: flex;
+  padding: 16px 380px 16px 18px;
+  gap: 18px;
+  border-radius: 12px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+}
