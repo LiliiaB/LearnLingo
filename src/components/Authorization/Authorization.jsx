@@ -57,7 +57,7 @@ export const Authorization = () => {
         onClose={() => setShowLoginModal(false)}
       >
         <form className={css.authForm} onSubmit={handleLogin}>
-          <h2 className={css.h1}>Log In</h2>
+          <h2 className={css.h2}>Log In</h2>
           <p className={css.p}>
             Welcome back! Please enter your credentials to access your account
             and continue your search for an teacher.
@@ -102,44 +102,49 @@ export const Authorization = () => {
         onClose={() => setShowRegisterModal(false)}
       >
         <form className={css.authForm}>
-          <h2>Register</h2>
+          <h2 className={css.h2}>Registration</h2>
+          <p className={css.p}>
+            Thank you for your interest in our platform! In order to register,
+            we need some information. Please provide us with the following
+            information
+          </p>
           <div className={css.inputContainer}>
-            <label htmlFor="registerName">Name:</label>
             <input
               type="text"
               id="registerName"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              placeholder="Name"
               className={css.inputField}
             />
           </div>
           <div className={css.inputContainer}>
-            <label htmlFor="registerEmail">Email:</label>
             <input
               type="email"
               id="registerEmail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Email"
               className={css.inputField}
             />
           </div>
 
           <div className={css.inputContainer}>
-            <label htmlFor="registerPassword">Password:</label>
             <input
               type="password"
               id="registerPassword"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Password"
               className={css.inputField}
             />
           </div>
 
           <button type="submit" className={css.btnregister}>
-            Register
+            Sign Up
           </button>
         </form>
       </ModalSignAuth>
