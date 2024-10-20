@@ -11,7 +11,7 @@ const buildLinkClass = ({ isActive }) => {
 export const NavBar = () => {
   return (
     <nav className={css.nav}>
-      <Link to="/">
+      <Link to="/" className={css.linkText}>
         <img
           src={logo}
           alt="Logo"

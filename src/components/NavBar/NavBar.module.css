@@ -32,3 +32,9 @@
 .artista {
   margin-left: auto;
 }
+.linkText {
+  color: #121417;
+}
+.linkText:hover {
+  color: #9fb7ce;
+}
