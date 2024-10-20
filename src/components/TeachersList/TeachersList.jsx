@@ -4,6 +4,7 @@ import bookopen from "../../assets/bookopen.png";
 import vector from "../../assets/vector.png";
 import star from "../../assets/star.png";
 import heart from "../../assets/heart.png";
+import avatar from "../../assets/avatar.png";
 import ModalButton from "../ModalButton/ModalButton";
 import Modalbooktrial from "../Modal/Modalbooktrial";
 
@@ -89,12 +90,21 @@ export const TeachersList = ({ teachers }) => {
                   <ul className={css.reviewList}>
                     {teacher.reviews.map((review, index) => (
                       <li key={index} className={css.reviewItem}>
-                        <p>{review.reviewer_name}</p>
-                        <p>
+                        <div className={css.reviewerInfo}>
+                          <img
+                            className={css.reviewerPhoto}
+                            src={avatar}
+                            alt={review.reviewer_foto}
+                          />
+                          <p className={css.reviewerName}>
+                            {review.reviewer_name}
+                          </p>
+                        </div>
+                        <p className={css.reviewerRating}>
                           <img className={css.icon} src={star} alt="staricon" />{" "}
                           {review.reviewer_rating}
                         </p>
-                        <p>{review.comment}</p>
+                        <p className={css.comment}>{review.comment}</p>
                       </li>
                     ))}
                   </ul>

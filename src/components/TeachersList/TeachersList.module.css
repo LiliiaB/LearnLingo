@@ -89,4 +89,27 @@
 }
 .reviewList {
   list-style-type: none;
+  padding-left: 0;
+}
+
+.reviewerPhoto {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 4px;
+  border: 3px solid #bfd6ea;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.reviewerName {
+  margin: 0;
+}
+
+.reviewerRating {
+  margin: 0;
 }
