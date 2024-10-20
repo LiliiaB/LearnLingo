@@ -6,7 +6,7 @@ import {
   updateProfile,
   signOut,
 } from "firebase/auth";
-import { auth } from "../../components/Firebase/firebase";
+import { auth } from "../../firebase";
 
 export const logUpThunk = createAsyncThunk(
   "auth/logUpThunk",
