@@ -1,4 +1,4 @@
-.btnlogin {
+.btnlogin1 {
   color: #121417;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.btnregister {
+.btnregister1 {
   color: #ffffff;
   background-color: #121417;
   font-family: "Roboto", sans-serif;
@@ -38,6 +38,7 @@
   line-height: 48px;
   letter-spacing: -0.02em;
   text-align: left;
+  margin: auto;
 }
 
 .p {
@@ -47,11 +48,30 @@
   text-align: left;
 }
 
-.inputContainer {
-  display: flex;
-  padding: 16px 380px 16px 18px;
-  gap: 18px;
+.inputField {
+  border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
+  padding: 12px 12px;
+  font-size: 16px;
+  color: #121417;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.authForm {
+  padding: 24px;
+  width: 438px;
+}
+
+.btnlogin {
+  color: #121417;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.25;
+  border: none;
+  cursor: pointer;
+  background-color: #9fb7ce;
+  width: 100%;
+  margin-top: 16px;
 }

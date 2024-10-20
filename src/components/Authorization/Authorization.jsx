@@ -9,7 +9,7 @@ import { logInThunk, logOutThunk } from "../../redux/auth/operation";
 export const Authorization = () => {
   const dispatch = useDispatch();
   const { isAuth, isAuthLoading } = useSelector((state) => state.auth);
-
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -34,24 +34,24 @@ export const Authorization = () => {
           </button>
         </div>
       ) : (
-        <>
+        <div className={css.div}>
           <button
-            className={css.btnlogin}
+            className={css.btnlogin1}
             onClick={() => setShowLoginModal(true)}
           >
             <img src={login} alt="Login Icon" className={css.iconlogin} />
             Log in
           </button>
           <button
-            className={css.btnregister}
+            className={css.btnregister1}
             onClick={() => setShowRegisterModal(true)}
           >
             Register
           </button>
-        </>
+        </div>
       )}
 
-      {/* Login Modal */}
+      {}
       <ModalSignAuth
         show={showLoginModal}
         onClose={() => setShowLoginModal(false)}
@@ -63,25 +63,25 @@ export const Authorization = () => {
             and continue your search for an teacher.
           </p>
           <div className={css.inputContainer}>
-            <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Email"
               className={css.inputField}
             />
           </div>
 
           <div className={css.inputContainer}>
-            <label htmlFor="password">Password:</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Password"
               className={css.inputField}
             />
           </div>
@@ -96,14 +96,24 @@ export const Authorization = () => {
         </form>
       </ModalSignAuth>
 
-      {/* Register Modal */}
+      {}
       <ModalSignAuth
         show={showRegisterModal}
         onClose={() => setShowRegisterModal(false)}
       >
         <form className={css.authForm}>
           <h2>Register</h2>
-          {/* Registration form logic */}
+          <div className={css.inputContainer}>
+            <label htmlFor="registerName">Name:</label>
+            <input
+              type="text"
+              id="registerName"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className={css.inputField}
+            />
+          </div>
           <div className={css.inputContainer}>
             <label htmlFor="registerEmail">Email:</label>
             <input
