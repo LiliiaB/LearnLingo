@@ -30,7 +30,7 @@ export const NavBar = () => {
           Favourite
         </NavLink> */}
       </div>
-      <div className={css.artista}>
+      <div className={css.auth}>
         <Authorization />
       </div>
     </nav>
